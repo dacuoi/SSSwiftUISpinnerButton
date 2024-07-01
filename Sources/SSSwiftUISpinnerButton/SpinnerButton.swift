@@ -52,7 +52,6 @@ public struct SpinnerButton<Content: View>: View {
             if !isButtonAnimating {
                 buttonAction()
             }
-            isButtonAnimating = true
         }) {
             /// Add content in button view
             ZStack {
