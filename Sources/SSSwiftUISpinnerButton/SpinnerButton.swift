@@ -83,7 +83,7 @@ public struct SpinnerButton<Content: View>: View {
                                 .stroke(buttonStyle.borderColor, lineWidth: buttonStyle.borderWidth)
                                 .shadow(color: buttonStyle.shadowColor, radius: buttonStyle.shadowRadius, x: buttonStyle.shadowOffset.x, y: buttonStyle.shadowOffset.y))
                     /// Add animation
-                    .animation(.easeInOut)
+                    // .animation(.easeInOut)
                 
                 if isButtonAnimating {
                     /// On animating, add spinning animation to view
@@ -95,7 +95,7 @@ public struct SpinnerButton<Content: View>: View {
                     VStack {
                         /// Add user added content
                         content
-                            .animation(.easeInOut)
+                            // .animation(.easeInOut)
                     }
                     .cornerRadius(isButtonAnimating ? buttonStyle.height/2:buttonStyle.cornerRadius)
                 }
