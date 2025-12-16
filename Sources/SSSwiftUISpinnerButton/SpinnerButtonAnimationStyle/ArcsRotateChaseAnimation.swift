@@ -38,13 +38,13 @@ public struct ArcsRotateChaseAnimation: View {
     
     public var body: some View {
         GeometryReader { geometry in
-            ForEach(0..<Int(count)) { index in
+            ForEach(0..<Int(count), id: \.self) { index in
                 item(forIndex: index, in: geometry.size)
                     .rotationEffect(isAnimating ? .degrees(360) : .degrees(0))
                     .animation(
                         Animation.default
                             .speed(Double.random(in: 0.2...0.5))
-                            .repeatCount(isAnimating ? .max : 1, autoreverses: false)
+                            .repeatCount(isAnimating ? .max : 1, autoreverses: false), value: isAnimating
                     )
             }
         }

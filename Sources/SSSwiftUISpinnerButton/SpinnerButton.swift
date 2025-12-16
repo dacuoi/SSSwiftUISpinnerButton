@@ -70,9 +70,10 @@ public struct SpinnerButton<Content: View>: View {
                             endPoint: .trailing
                         )
                     )
+                    .allowsHitTesting(false)
                     /// Add given corner radius to rectangle when button is not animating
                     .cornerRadius(
-                        isButtonAnimating ? (buttonStyle.height/2):buttonStyle.cornerRadius
+                        isButtonAnimating ? (buttonStyle.height/2) : buttonStyle.cornerRadius
                     )
                     /// Add `overlay` to give border or shadow to button
                     /// Add Rounded Rectangle View
@@ -83,7 +84,7 @@ public struct SpinnerButton<Content: View>: View {
                                 .stroke(buttonStyle.borderColor, lineWidth: buttonStyle.borderWidth)
                                 .shadow(color: buttonStyle.shadowColor, radius: buttonStyle.shadowRadius, x: buttonStyle.shadowOffset.x, y: buttonStyle.shadowOffset.y))
                     /// Add animation
-                    // .animation(.easeInOut)
+                    .animation(buttonStyle.customAnimation, value: isButtonAnimating)
                 
                 if isButtonAnimating {
                     /// On animating, add spinning animation to view
@@ -95,7 +96,7 @@ public struct SpinnerButton<Content: View>: View {
                     VStack {
                         /// Add user added content
                         content
-                            // .animation(.easeInOut)
+                            .animation(buttonStyle.customAnimation, value: isButtonAnimating)
                     }
                     .cornerRadius(isButtonAnimating ? buttonStyle.height/2:buttonStyle.cornerRadius)
                 }

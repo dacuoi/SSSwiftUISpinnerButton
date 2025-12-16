@@ -33,7 +33,7 @@ public struct BallSpinChaseAnimation: View {
     
     public var body: some View {
         GeometryReader { geometry in
-            ForEach(0..<Int(count)) { index in
+            ForEach(0..<Int(count), id: \.self) { index in
                 item(forIndex: index, in: geometry.size)
                     .frame(width: geometry.size.width, height: geometry.size.height)
                 
@@ -54,7 +54,7 @@ public struct BallSpinChaseAnimation: View {
                 Animation
                     .default
                     .repeatCount(isAnimating ? .max : 1, autoreverses: true)
-                    .delay(Double(index) / Double(count) / 2)
+                    .delay(Double(index) / Double(count) / 2), value: isAnimating
             )
             .offset(x: x, y: y)
     }

@@ -47,6 +47,9 @@ public struct SpinnerButtonViewStyle {
     /// Shadow offset of button - default shadowOffset is set to zero
     public var shadowOffset: CGPoint = CGPoint.zero
     
+    /// Animation
+    public var customAnimation: Animation = .easeInOut
+    
     // MARK: Init Methods
     /// Initialise to design button view
     public init() {
@@ -62,12 +65,13 @@ public struct SpinnerButtonViewStyle {
     ///   - backgroundColor: Background color of button
     ///   - spinningButtonBackgroundColor: Background color of button while button is animating / spinning
     ///   - spinningStrokeColor: Spinning Stroke Color of button
-    public init(width: CGFloat? = nil, height: CGFloat? = nil, cornerRadius: CGFloat? = nil, backgroundColor: Color? = nil, spinningButtonBackgroundColor: Color? = nil, spinningStrokeColor: Color? = nil) {
+    public init(width: CGFloat? = nil, height: CGFloat? = nil, cornerRadius: CGFloat? = nil, backgroundColor: Color? = nil, spinningButtonBackgroundColor: Color? = nil, spinningStrokeColor: Color? = nil, customAnimation: Animation = .easeInOut) {
         self.width = width ?? 300
         self.height = height ?? 50
         self.cornerRadius = cornerRadius ?? 0
         self.backgroundColor = backgroundColor ?? Color.primary
         self.spinningButtonBackgroundColor = spinningButtonBackgroundColor ?? self.backgroundColor
         self.spinningStrokeColor = spinningStrokeColor ?? .white
+        self.customAnimation = customAnimation
     }
 }

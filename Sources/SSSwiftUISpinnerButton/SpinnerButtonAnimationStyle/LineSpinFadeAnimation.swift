@@ -33,13 +33,13 @@ public struct LineSpinFadeAnimation: View {
     
     public var body: some View {
         GeometryReader { geometry in
-            ForEach(0..<Int(count)) { index in
+            ForEach(0..<Int(count), id: \.self) { index in
                 item(forIndex: index, in: geometry.size)
                     .opacity(isAnimating ? 0.25 : 1)
                     .animation(
                         Animation.default
                             .repeatCount(isAnimating ? .max : 1, autoreverses: true)
-                            .delay(Double(index) / Double(count) / 2)
+                            .delay(Double(index) / Double(count) / 2), value: isAnimating
                     )
             }
             .frame(width: geometry.size.width, height: geometry.size.height)
